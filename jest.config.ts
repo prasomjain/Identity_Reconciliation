@@ -7,6 +7,8 @@ const config: Config = {
     testMatch: ['**/*.test.ts'],
     moduleFileExtensions: ['ts', 'js', 'json'],
     clearMocks: true,
+    // Load .env file before tests run so DATABASE_URL is available
+    setupFiles: ['dotenv/config'],
     collectCoverageFrom: [
         'src/**/*.ts',
         '!src/tests/**',
