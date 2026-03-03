@@ -239,6 +239,3 @@ docker run -p 3000:3000 -e DATABASE_URL="postgresql://..." bitespeed-identity
 - Business logic and examples are implemented per **pages 3–9** of the Bitespeed Backend Task assignment PDF.
 - Live endpoint: *`<add after deployment>`*
 
-## License
-
-MIT
