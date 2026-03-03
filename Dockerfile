@@ -1,7 +1,10 @@
 # ── Stage 1: Build ────────────────────────────────────────────────────────
-FROM node:18-alpine AS builder
+FROM node:18-slim AS builder
 
 WORKDIR /app
+
+# Install openssl for Prisma
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies first (for Docker layer caching)
 COPY package*.json ./
@@ -17,9 +20,12 @@ COPY src ./src/
 RUN npm run build
 
 # ── Stage 2: Production ──────────────────────────────────────────────────
-FROM node:18-alpine AS production
+FROM node:18-slim AS production
 
 WORKDIR /app
+
+# Install openssl for Prisma runtime
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # Copy only production dependencies
 COPY package*.json ./
