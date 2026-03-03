@@ -4,7 +4,9 @@ A production-quality Node.js + TypeScript backend for customer identity reconcil
 
 ## 🔗 Live Endpoint
 
-> *`<add after deployment>`*
+> **`https://identity-reconciliation-cj2q.onrender.com`**
+>
+> POST `/identify` → `https://identity-reconciliation-cj2q.onrender.com/identify`
 
 ## Tech Stack
 
@@ -49,6 +51,8 @@ npm run dev
 ```
 
 The server will start on `http://localhost:3000`.
+
+> **Live production endpoint:** `https://identity-reconciliation-cj2q.onrender.com/identify`
 
 ## API Reference
 
@@ -237,5 +241,5 @@ docker run -p 3000:3000 -e DATABASE_URL="postgresql://..." bitespeed-identity
 ## References
 
 - Business logic and examples are implemented per **pages 3–9** of the Bitespeed Backend Task assignment PDF.
-- Live endpoint: *`<add after deployment>`*
+- Live endpoint: `https://identity-reconciliation-cj2q.onrender.com/identify`
 
