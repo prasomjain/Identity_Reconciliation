@@ -8,8 +8,9 @@ services:
   - type: web
     name: bitespeed-identity
     plan: free
-    runtime: docker
-    dockerfilePath: ./Dockerfile
+    runtime: node
+    buildCommand: npm ci && npx prisma generate && npm run build
+    startCommand: npx prisma migrate deploy && node dist/server.js
     envVars:
       - key: DATABASE_URL
         fromDatabase:
