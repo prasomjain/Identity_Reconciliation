@@ -1,3 +1,4 @@
+import 'dotenv/config'; // Load .env before any other imports
 import { createApp, logger } from './app';
 
 const PORT = process.env.PORT || 3000;
