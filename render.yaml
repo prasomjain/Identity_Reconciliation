@@ -1,0 +1,21 @@
+databases:
+  - name: bitespeed-db
+    plan: free
+    databaseName: bitespeed
+    user: bitespeed
+
+services:
+  - type: web
+    name: bitespeed-identity
+    plan: free
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bitespeed-db
+          property: connectionString
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3000"
