@@ -84,7 +84,7 @@ At least one of `email` or `phoneNumber` must be provided.
 }
 ```
 
-> **Note:** The response property `primaryContatctId` matches the spelling in the assignment PDF for grading compatibility.
+> **Note:** The response property `primaryContatctId` matches the spelling for grading compatibility.
 
 **Errors:**
 
@@ -145,7 +145,6 @@ curl -X POST http://localhost:3000/identify \
   -d '{"email": "george@hillvalley.edu", "phoneNumber": "717171"}'
 ```
 
-*(See assignment PDF pages 8–9 for the full merge example.)*
 
 ## Business Logic
 
@@ -176,7 +175,7 @@ All mutations use **serializable isolation** (`Prisma.$transaction` with `Serial
 | `updatedAt` | `TIMESTAMP` | Auto-updated on modification |
 | `deletedAt` | `TIMESTAMP` | Nullable, soft-delete |
 
-**No unique constraints** on email or phone — multiple rows may share them (as shown in the PDF examples).
+**No unique constraints** on email or phone — multiple rows may share them.
 
 ## Running Tests
 
@@ -191,7 +190,7 @@ npm run test:unit
 npm run test:integration
 ```
 
-The integration tests follow the exact examples from the assignment PDF (pages 3–9):
+The integration tests follows:
 - Create new primary (empty DB)
 - Add secondary when phone matches (Lorraine/McFly example)
 - Query with only phone or only email
@@ -237,9 +236,5 @@ docker run -p 3000:3000 -e DATABASE_URL="postgresql://..." bitespeed-identity
 ├── render.yaml                    # Render.com config
 └── README.md
 ```
-
-## References
-
-- Business logic and examples are implemented per **pages 3–9** of the Bitespeed Backend Task assignment PDF.
 - Live endpoint: `https://identity-reconciliation-cj2q.onrender.com/identify`
 
